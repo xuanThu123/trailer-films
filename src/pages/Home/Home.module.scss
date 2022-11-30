@@ -1,0 +1,44 @@
+.wrapper {
+  .banner {
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh / 2.5);
+    min-height: 300px;
+    z-index: -1;
+
+    .modal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(var(--darkBlue), 0.3);
+    }
+
+    .title {
+      padding: 30px 40px;
+      position: absolute;
+      top: 20%;
+
+      h1 {
+        font-size: 4.8rem;
+        font-weight: 700;
+        margin: 0;
+        color: #fff;
+      }
+
+      h2 {
+        font-size: 3.2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+    }
+  }
+
+  .inner-content {
+    min-height: 445px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}

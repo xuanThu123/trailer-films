@@ -1,0 +1,15 @@
+.wrapper {
+  margin-top: var(--headerHeight);
+  padding: 30px 40px;
+  max-width: 1300px;
+  margin: var(--headerHeight) auto 0 auto;
+
+  .title {
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+  }
+}

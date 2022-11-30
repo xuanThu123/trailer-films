@@ -1,0 +1,120 @@
+%button-shared {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #333;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.wrapper {
+  margin-top: var(--headerHeight);
+  width: 100%;
+  border: 1px solid rgb(227, 227, 227);
+  border-left: none;
+  border-right: none;
+  background-color: #fff;
+  z-index: 10;
+  transition: margin-top 0.2s linear;
+
+  .search-bar {
+    width: 100%;
+    padding: 0 40px;
+    position: relative;
+
+    & > input {
+      width: 100%;
+      border: none;
+      height: 44px;
+      outline: none;
+      font-style: italic;
+      color: #777474;
+      padding: 6px 30px;
+      font-weight: 600;
+
+      &::placeholder {
+        color: #777474;
+      }
+    }
+
+    .search-icon {
+      @extend %button-shared;
+      left: 40px;
+    }
+
+    .close-icon {
+      @extend %button-shared;
+      right: 40px;
+      color: #acacac;
+
+      &:hover {
+        color: #333;
+      }
+    }
+
+    .spin-icon {
+      right: 40px;
+      @extend %button-shared;
+
+      .spinning {
+        animation: spin 0.4s infinite;
+        position: relative;
+        top: 14px;
+      }
+    }
+  }
+
+  .result-wrapper {
+    justify-content: unset;
+    width: 100vw;
+    color: #333;
+    background-color: #fff;
+
+    .result-box {
+      width: 100%;
+
+      .heading {
+        padding: 10px 0;
+        font-size: 2.1rem;
+        font-weight: 700;
+
+        .trend-icon {
+          margin-right: 6px;
+          transform: translateY(4px);
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+.result-item {
+  border-bottom: 1px solid var(--lightGrey);
+  padding: 4px 40px 5px;
+  justify-content: flex-start !important;
+
+  &:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+  }
+
+  .search-icon {
+    color: #333;
+  }
+
+  & > p {
+    margin-bottom: 0;
+    margin-left: 8px;
+    color: #333;
+  }
+}

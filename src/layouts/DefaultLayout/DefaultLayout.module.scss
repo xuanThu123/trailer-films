@@ -1,0 +1,33 @@
+.wrapper {
+  header {
+    height: var(--headerHeight);
+    background-color: rgba(var(--darkBlue), 1);
+    width: 100%;
+    color: #fff;
+    z-index: 2;
+    transition: top 0.2s linear;
+
+    &::after {
+      display: block;
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: var(--headerHeight);
+      background-color: rgba(var(--darkBlue), 1);
+      display: none;
+      z-index: -1;
+    }
+  }
+
+  main {
+    margin-top: var(--headerHeight);
+  }
+
+  footer {
+    background-image: linear-gradient(0deg, #031d33, rgba(var(--darkBlue), 1));
+    z-index: 0;
+  }
+}

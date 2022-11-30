@@ -1,0 +1,239 @@
+@import "normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+
+:root {
+  --scrollerGrey: rgba(219, 219, 219, 1);
+  --headerHeight: 64px;
+  --darkBlue: 3, 37, 65;
+  --lightBlue: 1, 180, 228;
+  --lightGrey: rgba(227, 227, 227, 1);
+  --highRateColor: #21d07a;
+  --mediumRateColor: #d2d531;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.6rem;
+}
+
+// common styles
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.full-gray {
+  backdrop-filter: grayscale(100%);
+}
+
+.nav-up {
+  top: -64px;
+}
+
+.nav-down {
+  top: 0;
+}
+
+header.nav-down::after {
+  display: block;
+}
+
+// custom scroll-bar
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: var(--scrollerGrey);
+  border-radius: 20px;
+}
+body::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+// customize css of antd library
+.ant-dropdown {
+  width: 174px;
+
+  .ant-dropdown-menu-title-content > a {
+    display: block;
+    padding: 3px 24px 3px 24px;
+    font-size: 1.6rem;
+  }
+}
+
+.ant-tabs-top > .ant-tabs-nav::before {
+  display: none;
+}
+
+.ant-tabs-content-holder {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 90px;
+  margin-right: 40px;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      #fff 100%
+    );
+    will-change: opacity;
+    pointer-events: none;
+    transition: all 0.5s linear;
+  }
+
+  &.is-visible::after {
+    opacity: 1;
+  }
+
+  &.is-hidden::after {
+    opacity: 0;
+  }
+
+  .ant-tabs-content {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    min-height: 355px;
+
+    .ant-tabs-tabpane {
+      animation: faddeIn 1s ease reverse;
+    }
+
+    &::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--scrollerGrey);
+      border-radius: 20px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
+  }
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-list {
+  border: 1px solid rgba(var(--darkBlue), 1);
+  border-radius: 30px;
+
+  .ant-tabs-ink-bar {
+    display: none;
+  }
+
+  .ant-tabs-tab {
+    padding: 5px 20px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.6rem;
+    border-radius: 30px;
+
+    &:hover {
+      color: unset;
+    }
+
+    &.ant-tabs-tab-active {
+      background: rgba(var(--darkBlue), 1);
+      transition: -webkit-text-fill-color 0.5s;
+
+      .ant-tabs-tab-btn {
+        background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: rgba(var(--darkBlue), 1);
+        text-shadow: none;
+      }
+    }
+  }
+}
+
+body .ant-card-meta-title {
+  font-weight: 700;
+  margin-bottom: 0 !important;
+
+  &:hover {
+    color: rgba(var(--lightBlue), 1);
+  }
+}
+
+.ant-card {
+  height: 100%;
+}
+
+.ant-card:first-child {
+  margin-left: 0 !important;
+}
+
+.ant-progress-inner {
+  .ant-progress-circle {
+    background-color: #081c22;
+  }
+
+  .ant-progress-text {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #fff !important;
+  }
+}
+
+.anticon.anticon-caret-down {
+  font-size: 13px;
+  transform: translateY(1px);
+}
+
+.ant-dropdown-menu-submenu-title:hover {
+  background-color: #017c9d;
+  color: #fff;
+}
+
+.ant-dropdown-menu-submenu-arrow-icon:hover {
+  font-size: 1.4rem;
+  color: #fff !important;
+}
+
+.ant-dropdown-menu-item {
+  min-width: 160px;
+}
+
+.ant-dropdown-menu-title-content {
+  font-size: 1.6rem;
+}
+
+// custom css of tippy
+body [data-tippy-root] {
+  transform: translate3d(0, 45.4px, 0px) !important;
+  z-index: 9999;
+}
+
+@keyframes faddeIn {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

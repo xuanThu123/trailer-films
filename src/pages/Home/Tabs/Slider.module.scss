@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+  z-index: 0;
+
+  .colum {
+    width: 100%;
+    padding: 30px 40px 0;
+    display: flex;
+    align-items: baseline;
+
+    .title {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin-right: 20px;
+    }
+
+    .selector {
+      border-radius: 30px;
+      text-align: center;
+      border: 1px solid rgba(var(--darkBlue), 1);
+    }
+
+    .slider-content {
+      display: flex;
+      padding-bottom: 30px;
+      margin-left: 40px;
+    }
+
+    .progress-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: var(--headerHeight);
+      background-color: transparent;
+      height: 5px;
+
+      .perValue {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(1, 180, 228, 1);
+        width: 0%;
+        transition: width 0.7s ease-in;
+      }
+    }
+  }
+}
